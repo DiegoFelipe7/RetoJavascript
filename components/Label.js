@@ -1,3 +1,4 @@
+/*Componentes label*/
 export const Label = (titulo, clase) => {
   const label = document.createElement("label");
   label.textContent = titulo;

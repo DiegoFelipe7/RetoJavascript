@@ -129,7 +129,8 @@ export const view_preguntas = (field, valor, scorePlayer) => {
         ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
         "button",
         `${element.solucion}`,
-        field
+        field,
+        terminarPartida
       );
 
       const optio2 = Buttons(
@@ -139,7 +140,8 @@ export const view_preguntas = (field, valor, scorePlayer) => {
         ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
         "button",
         `${element.solucion}`,
-        field
+        field,
+        terminarPartida
       );
 
       const optio3 = Buttons(
@@ -149,7 +151,8 @@ export const view_preguntas = (field, valor, scorePlayer) => {
         ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
         "button",
         `${element.solucion}`,
-        field
+        field,
+        terminarPartida
       );
 
       const optio4 = Buttons(
@@ -159,7 +162,8 @@ export const view_preguntas = (field, valor, scorePlayer) => {
         ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
         "button",
         `${element.solucion}`,
-        field
+        field,
+        terminarPartida
       );
 
       const category = H4(`Categoria : ${element.categoria}`, [
@@ -184,10 +188,10 @@ export const view_preguntas = (field, valor, scorePlayer) => {
   div.append(div_left, div_rigth);
 
   container.append(div);
-  /*
-   *
-   */
 
+  /*
+   *Termina la partida y agrega el punta a la vista de puntajes
+   */
   function terminarPartida(event) {
     event.preventDefault();
     let usuarios = [

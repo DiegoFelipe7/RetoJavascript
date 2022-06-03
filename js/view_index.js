@@ -8,7 +8,7 @@ import { view_preguntas } from "./view_preguntas.js";
 import { view_listado } from "./view_listado.js";
 export const view_index = () => {
   const container = document.querySelector("#container");
-
+  /**Contendor*/
   const div = Div([
     "w-25",
     "h-50",
@@ -39,6 +39,7 @@ export const view_index = () => {
     "form-control",
     "w-100",
   ]);
+  /*boton para ingresar a la vista del juego*/
   const button = Button(
     "iniciar",
     "iniciar",
@@ -55,6 +56,7 @@ export const view_index = () => {
     ],
     "submit",
     (event) => {
+      /*validamos que el usuario ingrese el nombre*/
       event.preventDefault();
       const field = document.getElementById("nombre").value;
       if (field === "") {

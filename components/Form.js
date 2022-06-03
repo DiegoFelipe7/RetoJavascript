@@ -1,3 +1,4 @@
+/*Componente form*/
 export const Form = (id, clase, method) => {
   const form = document.createElement("form");
   form.autocomplete = "off";

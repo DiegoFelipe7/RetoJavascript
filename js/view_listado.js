@@ -34,42 +34,46 @@ export const view_listado = () => {
   /*Elementos del form*/
   const mb = Div(["mt-1"]);
   const label = Label("Pregunta", ["form-label", "font-bold"]);
-  const input = Inputs("respuesta1", "respuesta1", "Ingresa la pregunta", [
+  const input = Inputs("pregunta", "pregunta", "Ingresa la pregunta", [
     "form-control",
     "w-100",
   ]);
-
+  /*Div con su label y input*/
   const mb1 = Div(["mt-1"]);
   const label1 = Label("Opcion 1", ["form-label", "font-bold"]);
-  const input1 = Inputs("respuesta2", "respuesta2", "Ingresa la Opcion", [
+  const input1 = Inputs("respuesta1", "respuesta1", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
 
+  /*Div con su label y input*/
   const mb2 = Div(["mt-1"]);
   const label2 = Label("Opcion 2", ["form-label", "font-bold"]);
-  const input2 = Inputs("respuesta3", "respuesta3", "Ingresa la Opcion", [
+  const input2 = Inputs("respuesta2", "respuesta2", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
 
+  /*Div con su label y input*/
   const mb3 = Div(["mt-1"]);
   const label3 = Label("Opcion 3", ["form-label", "font-bold"]);
-  const input3 = Inputs("respuesta4", "respuesta4", "Ingresa la Opcion", [
+  const input3 = Inputs("respuesta3", "respuesta3", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
 
+  /*Div con su label y input*/
   const mb4 = Div(["mt-1"]);
   const label4 = Label("Opcion 4", ["form-label", "font-bold"]);
-  const input4 = Inputs("respuesta", "respuesta", "Ingresa la Opcion", [
+  const input4 = Inputs("respuesta4", "respuesta4", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
 
+  /*Div con su label y input*/
   const mb5 = Div(["mt-1"]);
   const label5 = Label("Respuesta correcta", ["form-label", "font-bold"]);
-  const input5 = Inputs("pregunta", "pregunta", "Ingresa la respuesta", [
+  const input5 = Inputs("correcta", "correcta", "Ingresa la respuesta", [
     "form-control",
     "w-100",
   ]);
@@ -92,9 +96,41 @@ export const view_listado = () => {
     ],
     "submit",
     (event) => {
+      /*Caputar los valors*/
       event.preventDefault();
-      let pregunta = document.getElementById("respuesta1").value;
-      console.log(pregunta);
+      let pregunta = document.getElementById("pregunta").value;
+      let respuesta1 = document.getElementById("respuesta1").value;
+      let respuesta2 = document.getElementById("respuesta2").value;
+      let respuesta3 = document.getElementById("respuesta3").value;
+      let respuesta4 = document.getElementById("respuesta4").value;
+      let correcta = document.getElementById("correcta").value;
+
+      if (
+        pregunta === "" ||
+        respuesta1 === "" ||
+        respuesta2 === "" ||
+        respuesta3 === "" ||
+        respuesta4 === "" ||
+        correcta == ""
+      ) {
+        Swal.fire("Todos los campos son obligatorios");
+        return;
+      }
+      /*Construnccion de un objeto */
+      const objeto = {
+        id: 26,
+        categoria: "Tecnologia",
+        pregunta: pregunta,
+        respuestas: [respuesta1, respuesta2, respuesta3, respuesta4],
+        nivel: 6,
+        solucion: "correcta",
+      };
+      /*Registramos el dato el nuestra data*/
+      data.push(objeto);
+      Swal.fire("Dato registrado");
+      data.forEach((element) => {
+        console.log(element);
+      });
     }
   );
 

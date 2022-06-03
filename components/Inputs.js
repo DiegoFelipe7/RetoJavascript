@@ -1,3 +1,4 @@
+/*componente inputs*/
 export const Inputs = (id, name, placeholder, clase) => {
   const inputs = document.createElement("input");
   inputs.type = "text";
