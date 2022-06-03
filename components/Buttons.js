@@ -21,7 +21,7 @@ export const Buttons = (id, name, nombre, clase, typo, respuesta, field) => {
       const container = document.querySelector("#container");
       container.innerHTML = "";
       view_preguntas(username, valor, scorePlayer);
-      alert("son iguales");
+      Swal.fire("Respuesta correcta 👍");
     } else {
     }
   });

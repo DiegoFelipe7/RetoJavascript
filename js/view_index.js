@@ -4,9 +4,8 @@ import { Div } from "../components/Div.js";
 import { Label } from "../components/Label.js";
 import { H4 } from "../components/H4.js";
 import { Form } from "../components/Form.js";
-import { usuarios } from "../services/index.js";
 import { view_preguntas } from "./view_preguntas.js";
-import { Random } from "../services/Random.js";
+import { view_listado } from "./view_listado.js";
 export const view_index = () => {
   const container = document.querySelector("#container");
 
@@ -59,7 +58,7 @@ export const view_index = () => {
       event.preventDefault();
       const field = document.getElementById("nombre").value;
       if (field === "") {
-        alert("datos vacios");
+        Swal.fire("Ingresa tu nombre");
         return;
       }
       container.innerHTML = "";
@@ -85,6 +84,7 @@ export const view_index = () => {
     (event) => {
       event.preventDefault();
       container.innerHTML = "";
+      view_listado();
     }
   );
 

@@ -1,10 +1,5 @@
-import { Inputs } from "../components/Inputs.js";
-import { Button } from "../components/Button.js";
 import { Div } from "../components/Div.js";
-import { Label } from "../components/Label.js";
 import { H4 } from "../components/H4.js";
-import { Form } from "../components/Form.js";
-import { view_preguntas } from "./view_preguntas.js";
 export const view_table = () => {
   const container = document.querySelector("#container");
 

@@ -36,7 +36,7 @@ export const view_preguntas = (field, valor, scorePlayer) => {
   ]);
 
   const div_user_infor = Div(["w-100", "mt-4", "text-center"]);
-  const name = H4(field, ["font-bold"]);
+  const name = H4(`Hola ${field} Bienvenido 😊`, ["font-bold"]);
 
   const div_game_info = Div(["w-100", "bg-dark", "h-50", "mt-5", "rounded"]);
 
@@ -61,7 +61,20 @@ export const view_preguntas = (field, valor, scorePlayer) => {
     ["btn", "btn-danger", "w-100", "p-3", "mt-5", "text-white"],
     "button",
     (event) => {
-      terminarPartida(event);
+      Swal.fire({
+        title: "¿Estas seguro de retirarte?",
+        showCancelButton: true,
+        confirmButtonText: "Si",
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Felicitaciones!", "", "success");
+          /*Terminar partida*/
+          terminarPartida(event);
+        } else if (result.isDenied) {
+          Swal.fire("Changes are not saved", "", "info");
+        }
+      });
     }
   );
 
@@ -97,7 +110,7 @@ export const view_preguntas = (field, valor, scorePlayer) => {
       hr.classList.add("w-100", "bg-white", "text-white", "p-1");
 
       /**
-       * Creacion delos botones para dar respuesta
+       * Creacion de los botones para dar respuesta
        */
       let opciones = Div([
         "w-100",
@@ -171,6 +184,9 @@ export const view_preguntas = (field, valor, scorePlayer) => {
   div.append(div_left, div_rigth);
 
   container.append(div);
+  /*
+   *
+   */
 
   function terminarPartida(event) {
     event.preventDefault();

@@ -5,6 +5,7 @@ import { Div } from "../components/Div.js";
 import { H4 } from "../components/H4.js";
 import { Form } from "../components/Form.js";
 import { Inputs } from "../components/Inputs.js";
+import { data } from "../data/data.js";
 export const view_listado = () => {
   const container = document.querySelector("#container");
   const div = Div([
@@ -33,35 +34,35 @@ export const view_listado = () => {
   /*Elementos del form*/
   const mb = Div(["mt-1"]);
   const label = Label("Pregunta", ["form-label", "font-bold"]);
-  const input = Inputs("pregunta", "pregunta", "Ingresa la pregunta", [
+  const input = Inputs("respuesta1", "respuesta1", "Ingresa la pregunta", [
     "form-control",
     "w-100",
   ]);
 
   const mb1 = Div(["mt-1"]);
   const label1 = Label("Opcion 1", ["form-label", "font-bold"]);
-  const input1 = Inputs("pregunta", "pregunta", "Ingresa la Opcion", [
+  const input1 = Inputs("respuesta2", "respuesta2", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
 
   const mb2 = Div(["mt-1"]);
   const label2 = Label("Opcion 2", ["form-label", "font-bold"]);
-  const input2 = Inputs("pregunta", "pregunta", "Ingresa la Opcion", [
+  const input2 = Inputs("respuesta3", "respuesta3", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
 
   const mb3 = Div(["mt-1"]);
   const label3 = Label("Opcion 3", ["form-label", "font-bold"]);
-  const input3 = Inputs("pregunta", "pregunta", "Ingresa la Opcion", [
+  const input3 = Inputs("respuesta4", "respuesta4", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
 
   const mb4 = Div(["mt-1"]);
   const label4 = Label("Opcion 4", ["form-label", "font-bold"]);
-  const input4 = Inputs("pregunta", "pregunta", "Ingresa la Opcion", [
+  const input4 = Inputs("respuesta", "respuesta", "Ingresa la Opcion", [
     "form-control",
     "w-100",
   ]);
@@ -72,7 +73,9 @@ export const view_listado = () => {
     "form-control",
     "w-100",
   ]);
-
+  /**
+   *Crecion del boton
+   */
   const button = Button(
     "iniciar",
     "iniciar",
@@ -90,19 +93,8 @@ export const view_listado = () => {
     "submit",
     (event) => {
       event.preventDefault();
-      const field = document.getElementById("nombre").value;
-      if (field === "") {
-        alert("datos vacios");
-        return;
-      }
-      let usuario = {
-        nombre: field,
-        score: 0,
-      };
-      localStorage.setItem("players", JSON.stringify(usuario));
-      container.innerHTML = "";
-      let valor = Random();
-      view_preguntas(field, valor);
+      let pregunta = document.getElementById("respuesta1").value;
+      console.log(pregunta);
     }
   );
 
