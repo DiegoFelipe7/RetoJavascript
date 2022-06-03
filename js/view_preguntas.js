@@ -12,7 +12,7 @@ export const view_preguntas = (field, valor, scorePlayer) => {
   /**
    * Div padre
    */
-  let scorePlayers = 0;
+  let scorePlayers = scorePlayer;
   const div = Div([
     "d-flex",
     "w-50",
@@ -40,14 +40,7 @@ export const view_preguntas = (field, valor, scorePlayer) => {
 
   const div_game_info = Div(["w-100", "bg-dark", "h-50", "mt-5", "rounded"]);
 
-  const score = H4("Tu puntaje es: " + scorePlayer, [
-    "text-white",
-    "font-bold",
-    "text-center",
-    "mt-5",
-  ]);
-
-  const awards = H4("Premios:", [
+  const score = H4("Tu puntaje es: $" + scorePlayer + "00" + " Dolares", [
     "text-white",
     "font-bold",
     "text-center",
@@ -91,6 +84,7 @@ export const view_preguntas = (field, valor, scorePlayer) => {
     "align-items-center",
     "justify-content-center",
   ]);
+  div_rigth.id = "right";
   const divQuestion = Div([
     "w-100",
     "bg-white",
@@ -182,7 +176,7 @@ export const view_preguntas = (field, valor, scorePlayer) => {
 
   /**Estructura */
   div_user_infor.append(name);
-  div_game_info.append(score, awards, button_exit);
+  div_game_info.append(score, button_exit);
 
   div_left.append(div_user_infor, div_game_info);
   div.append(div_left, div_rigth);

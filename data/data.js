@@ -103,7 +103,7 @@ export const data = [
     pregunta: "Cuál es el animal más grande que habita la Tierra",
     respuestas: ["La Ballena Azul", "El Tigre", "La Jirafa", "Delfin"],
     nivel: 3,
-    solucion: "La ballena azul",
+    solucion: "La Ballena Azul",
   },
   {
     id: 12,

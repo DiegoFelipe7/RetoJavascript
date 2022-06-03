@@ -1,5 +1,5 @@
-import { view_preguntas } from "../js/view_preguntas.js";
 import { Random } from "../services/Random.js";
+import { view_preguntas } from "../js/view_preguntas.js";
 /*Componentes buttons
  *@params id,name,nombre,clase,typo,respueta,fiel,terminarPartida
  */
@@ -15,6 +15,7 @@ export const Buttons = (
 ) => {
   let valor = Random();
   let username = field;
+  let scorePlayer = 0;
   const button = document.createElement("button");
   clase.forEach((element) => {
     button.classList.add(element);
@@ -26,7 +27,6 @@ export const Buttons = (
   button.addEventListener("click", (e) => {
     e.preventDefault();
     if (nombre === respuesta) {
-      let scorePlayer = 0;
       scorePlayer = scorePlayer + 1;
       const container = document.querySelector("#container");
       container.innerHTML = "";
