@@ -1,3 +1,8 @@
+/*
+ *Componente boton
+ *@params id , name ,nombre,clase,typo,accion
+ *
+ */
 export const Button = (id, name, nombre, clase, typo, accion) => {
   const button = document.createElement("button");
   clase.forEach((element) => {

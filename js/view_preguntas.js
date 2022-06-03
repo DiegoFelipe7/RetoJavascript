@@ -2,19 +2,17 @@ import { Buttons } from "../components/Buttons.js";
 import { Button } from "../components/Button.js";
 import { Div } from "../components/Div.js";
 import { H4 } from "../components/H4.js";
-import {
-  Economia,
-  Matematicas,
-  Ciencia,
-  Astronomia,
-  Deportes,
-} from "../data/data.js";
-import { usuarios } from "../services/index.js";
-export const view_preguntas = () => {
+import { data } from "../data/data.js";
+import { Random } from "../services/Random.js";
+import { view_table } from "./view_table.js";
+
+export const view_preguntas = (field, valor, scorePlayer) => {
+  console.log(valor);
   const container = document.querySelector("#container");
   /**
    * Div padre
    */
+  let scorePlayers = 0;
   const div = Div([
     "d-flex",
     "w-50",
@@ -38,11 +36,11 @@ export const view_preguntas = () => {
   ]);
 
   const div_user_infor = Div(["w-100", "mt-4", "text-center"]);
-  const name = H4(usuarios.nombre, ["font-bold"]);
+  const name = H4(field, ["font-bold"]);
 
   const div_game_info = Div(["w-100", "bg-dark", "h-50", "mt-5", "rounded"]);
 
-  const score = H4("Tu puntaje es: " + usuarios.score, [
+  const score = H4("Tu puntaje es: " + scorePlayer, [
     "text-white",
     "font-bold",
     "text-center",
@@ -61,7 +59,10 @@ export const view_preguntas = () => {
     "exit",
     "Retirarse",
     ["btn", "btn-danger", "w-100", "p-3", "mt-5", "text-white"],
-    "button"
+    "button",
+    (event) => {
+      terminarPartida(event);
+    }
   );
 
   /**
@@ -87,61 +88,76 @@ export const view_preguntas = () => {
     "p-4",
     "text-center",
   ]);
+  valor = Random();
+  data.forEach((element, index) => {
+    if (index === valor) {
+      const question = H4(`¿${element.pregunta}?`, ["font-bold"]);
+      divQuestion.append(question);
+      const hr = document.createElement("hr");
+      hr.classList.add("w-100", "bg-white", "text-white", "p-1");
 
-  Deportes.forEach((element) => {
-    const question = H4(`${element.pregunta}`, ["font-bold"]);
-    divQuestion.append(question);
-    const hr = document.createElement("hr");
-    hr.classList.add("w-100", "bg-white", "text-white", "p-1");
+      /**
+       * Creacion delos botones para dar respuesta
+       */
+      let opciones = Div([
+        "w-100",
+        "d-flex",
+        "flex-column",
+        "align-items-center",
+        "bg-dark",
+        "rounded",
+        "shadow-lg",
+      ]);
+      /*Creacion de los botones*/
+      const optio1 = Buttons(
+        "opcion-1",
+        "opcion-1",
+        `${element.respuestas[0]}`,
+        ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
+        "button",
+        `${element.solucion}`,
+        field
+      );
 
-    /**
-     * Creacion delos botones para dar respuest
-     */
-    let opciones = Div([
-      "w-100",
-      "d-flex",
-      "flex-column",
-      "align-items-center",
-      "bg-dark",
-      "rounded",
-      "shadow-lg",
-    ]);
-    /*Creacion de los botones*/
-    const optio1 = Buttons(
-      "opcion-1",
-      "opcion-1",
-      `${element.respuestas[0]}`,
-      ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
-      "button",
-      `${element.solucion}`
-    );
-    const optio2 = Buttons(
-      "opcion-2",
-      "opcion-2",
-      `${element.respuestas[1]}`,
-      ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
-      "button",
-      `${element.solucion}`
-    );
-    const optio3 = Buttons(
-      "opcion-3",
-      "opcion-3",
-      `${element.respuestas[2]}`,
-      ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
-      "button",
-      `${element.solucion}`
-    );
-    const optio4 = Buttons(
-      "opcion-4",
-      "opcion-4",
-      `${element.respuestas[3]}`,
-      ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
-      "button",
-      `${element.solucion}`
-    );
+      const optio2 = Buttons(
+        "opcion-2",
+        "opcion-2",
+        `${element.respuestas[1]}`,
+        ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
+        "button",
+        `${element.solucion}`,
+        field
+      );
 
-    opciones.append(optio1, optio2, optio3, optio4);
-    div_rigth.append(divQuestion, hr, opciones);
+      const optio3 = Buttons(
+        "opcion-3",
+        "opcion-3",
+        `${element.respuestas[2]}`,
+        ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
+        "button",
+        `${element.solucion}`,
+        field
+      );
+
+      const optio4 = Buttons(
+        "opcion-4",
+        "opcion-4",
+        `${element.respuestas[3]}`,
+        ["btn", "btn-secondary", "w-50", "text-white", "mt-2", "p-2"],
+        "button",
+        `${element.solucion}`,
+        field
+      );
+
+      const category = H4(`Categoria : ${element.categoria}`, [
+        "text-white",
+        "text-white",
+        "mt-2",
+      ]);
+
+      opciones.append(optio1, optio2, optio3, optio4, category);
+      div_rigth.append(divQuestion, hr, opciones);
+    }
   });
   /**
    *Fin Contenedor derecho
@@ -155,5 +171,21 @@ export const view_preguntas = () => {
   div.append(div_left, div_rigth);
 
   container.append(div);
-  console.log(container);
+
+  function terminarPartida(event) {
+    event.preventDefault();
+    let usuarios = [
+      { nombre: "Diego", score: 10 },
+      { nombre: "Carlos", score: 12 },
+    ];
+
+    let players = {
+      nombre: field,
+      score: scorePlayer,
+    };
+    usuarios.push(players);
+    localStorage.setItem("players", JSON.stringify(usuarios));
+    container.innerHTML = "";
+    view_table();
+  }
 };

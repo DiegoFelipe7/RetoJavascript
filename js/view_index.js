@@ -5,6 +5,8 @@ import { Label } from "../components/Label.js";
 import { H4 } from "../components/H4.js";
 import { Form } from "../components/Form.js";
 import { usuarios } from "../services/index.js";
+import { view_preguntas } from "./view_preguntas.js";
+import { Random } from "../services/Random.js";
 export const view_index = () => {
   const container = document.querySelector("#container");
 
@@ -56,24 +58,39 @@ export const view_index = () => {
     (event) => {
       event.preventDefault();
       const field = document.getElementById("nombre").value;
-      const players = {
-        nombre: field,
-        score: 0,
-      };
-      const usuario = [];
-      usuario.push(players);
-      console.log(usuario);
+      if (field === "") {
+        alert("datos vacios");
+        return;
+      }
+      container.innerHTML = "";
 
-      localStorage.setItem("players", JSON.stringify(usuario));
-
-      window.addEventListener("onload", view_index());
+      view_preguntas(field);
+    }
+  );
+  const button_new_question = Button(
+    "new_question",
+    "new_question",
+    "Nueva preguntas",
+    [
+      "font-bold",
+      "bg-ligth",
+      "w-100",
+      "text-black",
+      "text-center",
+      "mt-2",
+      "p-2",
+      "rounded",
+    ],
+    "submit",
+    (event) => {
+      event.preventDefault();
+      container.innerHTML = "";
     }
   );
 
   /*Estructura del proyecto*/
-  mb.append(label, input, button);
+  mb.append(label, input, button, button_new_question);
   form.append(h1, mb);
   div.append(form);
   container.append(div);
-  console.log(container);
 };

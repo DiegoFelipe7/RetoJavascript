@@ -1,4 +1,4 @@
-export const Deportes = [
+export const data = [
   {
     id: 1,
     categoria: "Deportes",
@@ -9,13 +9,15 @@ export const Deportes = [
       "Lionel Messi",
       "Diego Maradona",
     ],
+    nivel: 1,
     solucion: "Lionel Messi",
   },
-  /* {
+  {
     id: 2,
     categoria: "Deportes",
     pregunta: "El mejor estadio del mundo es",
     respuestas: ["Old Trafford", "Camp Nou", "Santiago Bernabeu", "Wembley"],
+    nivel: 1,
     solucion: "Camp Nou",
   },
   {
@@ -23,6 +25,7 @@ export const Deportes = [
     categoria: "Deportes",
     pregunta: "Qué selección tiene más títulos en la Copa del Mundo",
     respuestas: ["Brasil", "Alemania", "Argentina", "Colombia"],
+    nivel: 1,
     solucion: "Brasil",
   },
   {
@@ -31,6 +34,7 @@ export const Deportes = [
     pregunta:
       " Quién es el máximo goleador de la historia de la Champions League",
     respuestas: ["Messi", "Cristiano Ronaldo", "Neymar", "Benzema"],
+    nivel: 1,
     solucion: "Cristiano Ronaldo",
   },
   {
@@ -38,13 +42,12 @@ export const Deportes = [
     categoria: "Deportes",
     pregunta: "Qué club tiene más títulos de la Champions League",
     respuestas: ["Real Madrid", "Barcelona", "Bayer Munich", "Chelse"],
+    nivel: 1,
     solucion: "Real Madrid",
-  },*/
-];
+  },
 
-export const Astronomia = [
   {
-    id: 1,
+    id: 6,
     categoria: "Astronomia",
     pregunta: "Qué día pisó Armstrong la Luna",
     respuestas: [
@@ -53,31 +56,35 @@ export const Astronomia = [
       "21 julio 1969",
       "4 julio 1969",
     ],
+    nivel: 2,
     solucion: "21 julio 1969",
   },
   {
-    id: 2,
+    id: 7,
     categoria: "Astronomia",
     pregunta: "Cuál es la estrella más cercana al sistema solar",
     respuestas: ["La extrella polar", "Proxima centauri", "Polux", "Loxus"],
+    nivel: 2,
     solucion: "Proxima centauri",
   },
   {
-    id: 3,
+    id: 8,
     categoria: "Astronomia",
     pregunta: "Cual es la galaxia mas cercana",
     respuestas: ["Andromeda", "Cometa", "Barnard", "Bode"],
+    nivel: 2,
     solucion: "Andromeda",
   },
   {
-    id: 4,
+    id: 9,
     categoria: "Astronomia",
     pregunta: "En qué siglo se inventó el primer telescopio",
     respuestas: ["Siglo IX", "Siglo XII", "Siglo XIII", "Siglo XVII"],
+    nivel: 2,
     solucion: "Siglo XVII",
   },
   {
-    id: 5,
+    id: 10,
     categoria: "Astronomia",
     pregunta:
       "Cómo se llama el proyecto destinado a la búsqueda de vida inteligente más allá de la Tierra",
@@ -87,65 +94,69 @@ export const Astronomia = [
       "Proyecto It",
       "Proyecto Isaac",
     ],
+    nivel: 2,
     solucion: "Proyecto Area 51",
   },
-];
-
-export const Ciencia = [
   {
-    id: 1,
+    id: 11,
     categoria: "Ciencia",
     pregunta: "Cuál es el animal más grande que habita la Tierra",
     respuestas: ["La Ballena Azul", "El Tigre", "La Jirafa", "Delfin"],
+    nivel: 3,
     solucion: "La ballena azul",
   },
   {
-    id: 2,
+    id: 12,
     categoria: "Ciencia",
     pregunta: "Qué órgano del cuerpo humano consume más energía",
     respuestas: ["Cerebro", "Corazón", "Pulmones", "Higado"],
+    nivel: 3,
     solucion: "Cerebro",
   },
   {
-    id: 3,
+    id: 13,
     categoria: "Ciencia",
     pregunta: "Cuál es la fórmula química del agua",
     respuestas: ["H20", "NiCl2", "Cu2O", "Fe2O3"],
+    nivel: 3,
     solucion: "H20",
   },
   {
-    id: 4,
+    id: 14,
     categoria: "Ciencia",
     pregunta: "Cuál es el planeta más cercano al Sol",
     respuestas: ["Mercurio", "Marte", "Jupiter", "Pluton"],
+    nivel: 3,
     solucion: "Mercurio",
   },
+
   {
-    id: 5,
+    id: 15,
     categoria: "Ciencia",
     pregunta: "Qué planeta es conocido como “el planeta rojo”",
     respuestas: ["Marte", "Pluton", "Tierra", "Mercurio"],
+    nivel: 3,
     solucion: "Marte",
   },
-];
-export const Matematicas = [
   {
-    id: 1,
+    id: 16,
     categoria: "Matematicas",
     pregunta: "Cuánto es la cuarta parte de la tercera parte",
     respuestas: ["Un Doceavo", "3/4 Parte", "Un septimo", "1/5 Parte"],
+    nivel: 4,
     solucion: "Un Doceavo",
   },
   {
-    id: 2,
+    id: 17,
     categoria: "Matematicas",
     pregunta:
       "Hay 165 ovejas y 5 perros en un rebaño,cuántos años tiene el pastor",
     respuestas: ["35", "32", "31", "No se puede saber"],
+    nivel: 4,
     solucion: "No se puede saber",
   },
   {
-    id: 3,
+    id: 18,
     categoria: "Matematicas",
     pregunta: "Quién ganó el último Nobel de Matemáticas",
     respuestas: [
@@ -154,26 +165,27 @@ export const Matematicas = [
       "No existe el premio Nobel",
       "Isaac Newton",
     ],
+    nivel: 4,
     solucion: "No existe el premio Nobel",
   },
   {
-    id: 4,
+    id: 19,
     categoria: "Matematicas",
     pregunta: "Cuál es el número primo más pequeño",
     respuestas: ["1", "2", "3", "4"],
+    nivel: 4,
     solucion: "2",
   },
   {
-    id: 5,
+    id: 20,
     categoria: "Matematicas",
     pregunta: "Selecciona el sinónimo de palíndromo",
     respuestas: ["Capicua", "Integral", "Derivada", "Racional"],
+    nivel: 4,
     solucion: "Capicua",
   },
-];
-export const Economia = [
   {
-    id: 1,
+    id: 21,
     categoria: "Economia",
     pregunta: "La economía para establecer sus principios,leyes o modelos:",
     respuestas: [
@@ -182,10 +194,11 @@ export const Economia = [
       "Emplea un modelo inductivo",
       "Emplea un modelo histórico inductivodeductivo",
     ],
+    nivel: 5,
     solucion: "Emplea un modelo histórico inductivodeductivo",
   },
   {
-    id: 2,
+    id: 22,
     categoria: "Economia",
     pregunta: "Los modelos económicos tratan de",
     respuestas: [
@@ -194,10 +207,11 @@ export const Economia = [
       "Presentar normas de comportamiento",
       "Todo lo anterior",
     ],
+    nivel: 5,
     solucion: "Explicar y predecir hecho economicos",
   },
   {
-    id: 3,
+    id: 23,
     categoria: "Economia",
     pregunta: "Los problema que aborda la Economía como ciencia se refiere a",
     respuestas: [
@@ -206,10 +220,11 @@ export const Economia = [
       "Gustos de consumidores",
       "La escasez de recursos",
     ],
+    nivel: 5,
     solucion: "La escasez de recursos",
   },
   {
-    id: 4,
+    id: 24,
     categoria: "Economia",
     pregunta:
       "La idea de que los trabajadores jóvenes tengan ingresos bajos que se incrementan a medida que ganan madurez y experiencia",
@@ -219,13 +234,15 @@ export const Economia = [
       "renta permanente",
       "paseo aleatorio",
     ],
+    nivel: 5,
     solucion: "ciclo de vida",
   },
   {
-    id: 5,
+    id: 25,
     categoria: "Economia",
     pregunta: "La economia es una ciencia ",
     respuestas: ["Exacta", "Social", "Natural", "De salud"],
+    nivel: 5,
     solucion: "Social",
   },
 ];
